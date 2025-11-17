@@ -12,10 +12,11 @@ int main(){
         }
     }
     else{
-        printf("factorial=1");
+        printf("");
     
     }
     printf("factorial of %d is %lf",n,fac);
     return 0;
+
 
 }
