@@ -8,13 +8,23 @@ int power(int base, int exp) {
     return result;
 }
 
+int countDigits(int num) {
+    int count = 0;
+    while (num > 0) {
+        count++;
+        num /= 10;
+    }
+    return count;
+}
+
 int isArmstrong(int num) {
     int originalNum = num;
     int sum = 0, digit;
+    int digits = countDigits(num);
 
     while (num > 0) {
         digit = num % 10;
-        sum += power(digit, 3);  
+        sum += power(digit, digits);  // FIXED
         num /= 10;
     }
 
@@ -25,12 +35,12 @@ int main() {
     int n;
     printf("Armstrong numbers between 1 and 100 are:\n");
 
-    for (n=1; n<=100; n++) {
+    for (n = 1; n <= 100; n++) {
         if (isArmstrong(n))
             printf("%d ", n);
     }
 
-    printf("\n");
-
     return 0;
 }
+
+   
